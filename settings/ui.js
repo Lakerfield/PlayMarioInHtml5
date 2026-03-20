@@ -129,6 +129,19 @@ var PlayMarioJas;
                         "disable": function (FSM) {
                             window.ondevicemotion = undefined;
                         }
+                    },
+                    {
+                        "title": "Gamepad Controls",
+                        "type": "Boolean",
+                        "storeLocally": true,
+                        "source": function (FSM) { return false; },
+                        "enable": function (FSM) {
+                            FSM.gamepadEnabled = true;
+                        },
+                        "disable": function (FSM) {
+                            FSM.gamepadEnabled = false;
+                            FSM.DeviceLayer.clearAllGamepadTriggers();
+                        }
                     }
                 ],
                 "actions": [

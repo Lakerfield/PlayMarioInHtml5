@@ -1,8 +1,10 @@
 PlayMarioJas.PlayMarioJas.settings.runner = {
     "games": [
         function () {
-            this.DeviceLayer.checkNavigatorGamepads();
-            this.DeviceLayer.activateAllGamepadTriggers();
+            if (this.gamepadEnabled) {
+                this.DeviceLayer.checkNavigatorGamepads();
+                this.DeviceLayer.activateAllGamepadTriggers();
+            }
         },
         function () {
             this.QuadsKeeper.determineAllQuadrants("Scenery", this.GroupHolder.getSceneryGroup());
